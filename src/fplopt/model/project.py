@@ -167,7 +167,11 @@ def project(
     )
 
     minutes_priors = mm.fit_position_priors(hist, early_gws=min(n_gws_so_far, 6) or 2)
-    minutes_df = mm.estimate_minutes(elements, gw_history, n_gws_so_far, priors=minutes_priors)
+    player_priors = mm.fit_player_priors(hist)
+    minutes_df = mm.estimate_minutes(
+        elements, gw_history, n_gws_so_far, priors=minutes_priors,
+        player_priors=player_priors,
+    )
 
     rate_priors = rr.fit_rate_priors(hist)
     understat_matched = rr.match_understat(elements, understat_players)

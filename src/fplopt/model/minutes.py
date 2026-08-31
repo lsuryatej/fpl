@@ -42,6 +42,8 @@ import logging
 import numpy as np
 import pandas as pd
 
+from ._teamnames import normalize_name
+
 __all__ = [
     "HARD_OUT_STATUSES",
     "UNCERTAIN_STATUSES",
@@ -217,12 +219,53 @@ def _coerce_team_ids(series: "pd.Series") -> "pd.Series":
     return series
 
 
+def fit_player_priors(
+    history_df: pd.DataFrame,
+    seasons: tuple[str, ...] = ("2025-26",),
+    *,
+    min_games: int = 5,
+) -> pd.DataFrame:
+    """Each player's own start and play rate in prior seasons.
+
+    The position-by-bucket prior treats every forward who started both opening
+    games identically, so a two-from-two record could only reach
+    ``(2 + 2 * 0.59) / 4 = 0.795``. That is badly wrong for a player who
+    started 35 league games last season, and the nailed-versus-rotation
+    distinction it flattens is the one that matters most in FPL.
+
+    Keyed by NORMALISED NAME, not element id: FPL reassigns element ids every
+    season, so an id join across seasons silently matches unrelated players.
+    """
+    frame = history_df[history_df["season"].isin(seasons)].copy()
+    frame = frame.dropna(subset=["name", "minutes"])
+    if frame.empty:
+        return pd.DataFrame(
+            columns=["prior_games", "p_play_obs", "p_start_obs"]
+        ).rename_axis("name_key")
+
+    frame["played"] = frame["minutes"].fillna(0) > 0
+    frame["started"] = frame["starts"].fillna(0) > 0
+    frame["name_key"] = frame["name"].map(normalize_name)
+
+    grouped = frame.groupby("name_key").agg(
+        prior_games=("played", "size"),
+        _played=("played", "sum"),
+        _started=("started", "sum"),
+    )
+    grouped = grouped[grouped["prior_games"] >= min_games]
+    grouped["p_play_obs"] = grouped["_played"] / grouped["prior_games"]
+    grouped["p_start_obs"] = grouped["_started"] / grouped["prior_games"]
+    return grouped[["prior_games", "p_play_obs", "p_start_obs"]]
+
+
 def estimate_minutes(
     elements: pd.DataFrame,
     gw_history: pd.DataFrame,
     n_gws_so_far: int,
     *,
     priors: pd.DataFrame | None = None,
+    player_priors: pd.DataFrame | None = None,
+    player_prior_weight: float = 6.0,
     start_pseudo_n: float = 2.0,
     play_pseudo_n: float = 2.0,
     minutes_pseudo_n: float = 2.0,
@@ -294,6 +337,24 @@ def estimate_minutes(
     prior_cols = ["p_play", "p_start", "minutes_started", "minutes_sub"]
     prior_vals = prior_idx.reindex(zip(out["position"], out["bucket"]))[prior_cols].reset_index(drop=True)
     out = pd.concat([out.reset_index(drop=True), prior_vals.add_suffix("_prior")], axis=1)
+
+    # Blend each player's own prior-season record into the bucket prior. Weight
+    # rises with how many prior games we have for them, so established starters
+    # get a prior near their real rate while newcomers keep the bucket value.
+    if player_priors is not None and not player_priors.empty:
+        name_source = "full_name" if "full_name" in elements.columns else "web_name"
+        keys = (
+            elements[name_source].map(normalize_name).reset_index(drop=True)
+            if name_source in elements.columns
+            else pd.Series([""] * len(out))
+        )
+        joined = player_priors.reindex(keys.to_numpy()).reset_index(drop=True)
+        games = joined["prior_games"].fillna(0.0)
+        weight = games / (games + player_prior_weight)
+        for col in ("p_play", "p_start"):
+            observed = joined[f"{col}_obs"]
+            blended = weight * observed.fillna(0.0) + (1.0 - weight) * out[f"{col}_prior"]
+            out[f"{col}_prior"] = blended.where(observed.notna(), out[f"{col}_prior"])
 
     n = max(int(n_gws_so_far), 0)
     if n > 0:

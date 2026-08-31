@@ -200,7 +200,7 @@ def predict_gameweek_from_history(
             "element_type": latest["position"].map(_POSITION_CODE),
             "team": latest["team"].map(normalize_team),
             "team_name": latest["team"].map(normalize_team),
-            "full_name": "",
+            "full_name": latest["name"] if "name" in latest.columns else "",
             "now_cost": latest["value"].fillna(50),
             "status": "a",
             "chance_of_playing_next_round": np.nan,
@@ -214,7 +214,18 @@ def predict_gameweek_from_history(
     gw_history = season_prior[season_prior["gw"].isin(recent_gws)][["element", "gw", "minutes", "starts"]]
 
     minutes_priors = mm.fit_position_priors(history_df, seasons=tuple(s for s in prior_seasons if s >= "2022-23") or prior_seasons)
-    minutes_df = mm.estimate_minutes(elements, gw_history, n_gws_so_far=len(recent_gws), priors=minutes_priors)
+    # Player priors must come from seasons STRICTLY BEFORE the target, or the
+    # backtest leaks the answer it is being scored against.
+    player_prior_seasons = prior_seasons[-1:] if prior_seasons else ()
+    player_priors = (
+        mm.fit_player_priors(history_df, seasons=player_prior_seasons)
+        if player_prior_seasons
+        else None
+    )
+    minutes_df = mm.estimate_minutes(
+        elements, gw_history, n_gws_so_far=len(recent_gws), priors=minutes_priors,
+        player_priors=player_priors,
+    )
 
     rate_priors = rr.fit_rate_priors(history_df, seasons=prior_seasons)
     rates_df = rr.estimate_rates(elements, rate_priors, understat_matched=None)

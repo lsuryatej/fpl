@@ -1,14 +1,21 @@
 {
-  "headline": "wildcard now: 418.5 expected points over GW3-10",
+  "headline": "wildcard now: 452.7 expected points over GW3-10 (chosen on league rank utility)",
   "summary": [
-    "Best course of action is 'wildcard now', worth 28.1 more expected points over the 8-gameweek horizon than the alternative.",
-    "Multi-week planning beats one-week-greedy by 42.0 points (undiscounted)."
+    "Best course of action is 'wildcard now', worth 24.1 more expected points over the 8-gameweek horizon than the alternative.",
+    "Multi-week planning beats one-week-greedy by 37.6 expected points."
   ],
   "options": {
-    "no chip": 390.38,
-    "wildcard now": 418.5
+    "no chip": {
+      "true_ep": 428.63,
+      "objective": 486.24
+    },
+    "wildcard now": {
+      "true_ep": 452.72,
+      "objective": 515.32
+    }
   },
-  "greedy_baseline": 376.55,
+  "greedy_baseline": 415.16,
+  "true_ep": 452.72,
   "plan": [
     {
       "gw": 3,
@@ -16,17 +23,17 @@
       "in": [
         "Verbruggen",
         "Wieffer",
-        "Nketiah",
+        "Richards",
         "Leno",
-        "Egan",
-        "Stach",
+        "McBurnie",
+        "Virgil",
+        "Gakpo",
         "Szoboszlai",
-        "Isak",
-        "Foden",
-        "Hall",
         "N.Williams",
+        "Milenkovi\u0107",
         "Gibbs-White",
-        "Vuskovic"
+        "Anderson",
+        "Gonzalo"
       ],
       "out": [
         "Buend\u00eda",
@@ -43,138 +50,140 @@
         "B.Fernandes",
         "Tonali"
       ],
-      "captain": "Haaland",
-      "vice": "Stach",
+      "captain": "Semenyo",
+      "vice": "Szoboszlai",
       "hits": 0,
       "hit_cost": 0,
       "ft_before": 2,
       "ft_used": 0,
-      "bank_after": 0.4,
-      "points": 57.29
+      "bank_after": 0.0,
+      "points": 71.12
     },
     {
       "gw": 4,
       "chip": null,
       "in": [],
       "out": [],
-      "captain": "Haaland",
-      "vice": "Stach",
+      "captain": "Szoboszlai",
+      "vice": "Haaland",
       "hits": 0,
       "hit_cost": 0,
       "ft_before": 3,
       "ft_used": 0,
-      "bank_after": 0.4,
-      "points": 49.87
+      "bank_after": 0.0,
+      "points": 60.27
     },
     {
       "gw": 5,
       "chip": null,
       "in": [
-        "Jo\u00e3o Pedro",
-        "Pickford",
         "Tarkowski",
-        "Elanga"
+        "Dewsbury-Hall",
+        "Stach",
+        "Thiaw"
       ],
       "out": [
-        "Verbruggen",
-        "Szoboszlai",
-        "Isak",
-        "Vuskovic"
+        "Richards",
+        "Virgil",
+        "Gakpo",
+        "Szoboszlai"
       ],
       "captain": "Gibbs-White",
-      "vice": "N.Williams",
+      "vice": "Tarkowski",
       "hits": 0,
       "hit_cost": 0,
       "ft_before": 4,
       "ft_used": 4,
-      "bank_after": 0.7,
-      "points": 52.9
+      "bank_after": 2.0,
+      "points": 69.04
     },
     {
       "gw": 6,
       "chip": null,
       "in": [
-        "Gonzalo"
+        "Scott"
       ],
       "out": [
-        "Nketiah"
+        "Dewsbury-Hall"
       ],
-      "captain": "Gonzalo",
-      "vice": "Semenyo",
+      "captain": "Thiaw",
+      "vice": "Gonzalo",
       "hits": 0,
       "hit_cost": 0,
       "ft_before": 1,
       "ft_used": 1,
-      "bank_after": 0.2,
-      "points": 49.75
+      "bank_after": 2.5,
+      "points": 59.93
     },
     {
       "gw": 7,
       "chip": null,
-      "in": [],
-      "out": [],
+      "in": [
+        "Van Hecke"
+      ],
+      "out": [
+        "Wieffer"
+      ],
       "captain": "Haaland",
-      "vice": "Stach",
+      "vice": "Thiaw",
       "hits": 0,
       "hit_cost": 0,
       "ft_before": 1,
-      "ft_used": 0,
-      "bank_after": 0.2,
-      "points": 56.71
+      "ft_used": 1,
+      "bank_after": 2.5,
+      "points": 69.04
     },
     {
       "gw": 8,
       "chip": null,
       "in": [],
       "out": [],
-      "captain": "Jo\u00e3o Pedro",
-      "vice": "Stach",
+      "captain": "Gibbs-White",
+      "vice": "Leno",
       "hits": 0,
       "hit_cost": 0,
-      "ft_before": 2,
+      "ft_before": 1,
       "ft_used": 0,
-      "bank_after": 0.2,
-      "points": 50.73
+      "bank_after": 2.5,
+      "points": 62.06
     },
     {
       "gw": 9,
       "chip": null,
       "in": [
-        "Scott",
-        "McBurnie",
-        "Ballard"
+        "Egan"
       ],
       "out": [
-        "Wieffer",
-        "Gibbs-White",
-        "Gonzalo"
+        "Milenkovi\u0107"
       ],
-      "captain": "Haaland",
-      "vice": "Semenyo",
+      "captain": "McBurnie",
+      "vice": "Scott",
       "hits": 0,
       "hit_cost": 0,
-      "ft_before": 3,
-      "ft_used": 3,
-      "bank_after": 2.6,
-      "points": 51.37
+      "ft_before": 2,
+      "ft_used": 1,
+      "bank_after": 4.0,
+      "points": 61.12
     },
     {
       "gw": 10,
       "chip": null,
       "in": [
-        "Branthwaite"
+        "Mykolenko",
+        "Ndiaye"
       ],
       "out": [
-        "N.Williams"
+        "Egan",
+        "Gibbs-White"
       ],
-      "captain": "Stach",
-      "vice": "Haaland",
+      "captain": "Tarkowski",
+      "vice": "Ndiaye",
       "hits": 0,
       "hit_cost": 0,
-      "ft_before": 1,
-      "ft_used": 1,
-      "bank_after": 2.1,
-      "points": 49.89
+      "ft_before": 2,
+      "ft_used": 2,
+      "bank_after": 5.4,
+      "points": 62.75
     }
   ],
   "state": {
@@ -186,5 +195,6 @@
       "bench_boost": 2,
       "triple_captain": 2
     }
-  }
+  },
+  "objective": "league rank utility"
 }
