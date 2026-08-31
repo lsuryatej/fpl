@@ -1,0 +1,190 @@
+{
+  "headline": "wildcard now: 418.5 expected points over GW3-10",
+  "summary": [
+    "Best course of action is 'wildcard now', worth 28.1 more expected points over the 8-gameweek horizon than the alternative.",
+    "Multi-week planning beats one-week-greedy by 42.0 points (undiscounted)."
+  ],
+  "options": {
+    "no chip": 390.38,
+    "wildcard now": 418.5
+  },
+  "greedy_baseline": 376.55,
+  "plan": [
+    {
+      "gw": 3,
+      "chip": "wildcard",
+      "in": [
+        "Verbruggen",
+        "Wieffer",
+        "Nketiah",
+        "Leno",
+        "Egan",
+        "Stach",
+        "Szoboszlai",
+        "Isak",
+        "Foden",
+        "Hall",
+        "N.Williams",
+        "Gibbs-White",
+        "Vuskovic"
+      ],
+      "out": [
+        "Buend\u00eda",
+        "Watkins",
+        "Dovin",
+        "Henderson",
+        "Mu\u00f1oz",
+        "Diop",
+        "Greaves",
+        "Calvert-Lewin",
+        "C.Jones",
+        "Matheus N.",
+        "Shaw",
+        "B.Fernandes",
+        "Tonali"
+      ],
+      "captain": "Haaland",
+      "vice": "Stach",
+      "hits": 0,
+      "hit_cost": 0,
+      "ft_before": 2,
+      "ft_used": 0,
+      "bank_after": 0.4,
+      "points": 57.29
+    },
+    {
+      "gw": 4,
+      "chip": null,
+      "in": [],
+      "out": [],
+      "captain": "Haaland",
+      "vice": "Stach",
+      "hits": 0,
+      "hit_cost": 0,
+      "ft_before": 3,
+      "ft_used": 0,
+      "bank_after": 0.4,
+      "points": 49.87
+    },
+    {
+      "gw": 5,
+      "chip": null,
+      "in": [
+        "Jo\u00e3o Pedro",
+        "Pickford",
+        "Tarkowski",
+        "Elanga"
+      ],
+      "out": [
+        "Verbruggen",
+        "Szoboszlai",
+        "Isak",
+        "Vuskovic"
+      ],
+      "captain": "Gibbs-White",
+      "vice": "N.Williams",
+      "hits": 0,
+      "hit_cost": 0,
+      "ft_before": 4,
+      "ft_used": 4,
+      "bank_after": 0.7,
+      "points": 52.9
+    },
+    {
+      "gw": 6,
+      "chip": null,
+      "in": [
+        "Gonzalo"
+      ],
+      "out": [
+        "Nketiah"
+      ],
+      "captain": "Gonzalo",
+      "vice": "Semenyo",
+      "hits": 0,
+      "hit_cost": 0,
+      "ft_before": 1,
+      "ft_used": 1,
+      "bank_after": 0.2,
+      "points": 49.75
+    },
+    {
+      "gw": 7,
+      "chip": null,
+      "in": [],
+      "out": [],
+      "captain": "Haaland",
+      "vice": "Stach",
+      "hits": 0,
+      "hit_cost": 0,
+      "ft_before": 1,
+      "ft_used": 0,
+      "bank_after": 0.2,
+      "points": 56.71
+    },
+    {
+      "gw": 8,
+      "chip": null,
+      "in": [],
+      "out": [],
+      "captain": "Jo\u00e3o Pedro",
+      "vice": "Stach",
+      "hits": 0,
+      "hit_cost": 0,
+      "ft_before": 2,
+      "ft_used": 0,
+      "bank_after": 0.2,
+      "points": 50.73
+    },
+    {
+      "gw": 9,
+      "chip": null,
+      "in": [
+        "Scott",
+        "McBurnie",
+        "Ballard"
+      ],
+      "out": [
+        "Wieffer",
+        "Gibbs-White",
+        "Gonzalo"
+      ],
+      "captain": "Haaland",
+      "vice": "Semenyo",
+      "hits": 0,
+      "hit_cost": 0,
+      "ft_before": 3,
+      "ft_used": 3,
+      "bank_after": 2.6,
+      "points": 51.37
+    },
+    {
+      "gw": 10,
+      "chip": null,
+      "in": [
+        "Branthwaite"
+      ],
+      "out": [
+        "N.Williams"
+      ],
+      "captain": "Stach",
+      "vice": "Haaland",
+      "hits": 0,
+      "hit_cost": 0,
+      "ft_before": 1,
+      "ft_used": 1,
+      "bank_after": 2.1,
+      "points": 49.89
+    }
+  ],
+  "state": {
+    "bank": 0.0,
+    "free_transfers": 2,
+    "chips": {
+      "wildcard": 2,
+      "free_hit": 2,
+      "bench_boost": 2,
+      "triple_captain": 2
+    }
+  }
+}
