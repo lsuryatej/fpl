@@ -1,0 +1,347 @@
+{
+ "players": [
+  {
+   "id": "1228",
+   "player_name": "Bruno Fernandes",
+   "games": "2",
+   "time": "180",
+   "goals": "3",
+   "xG": "2.247294310480356",
+   "assists": "1",
+   "xA": "0.6195708513259888",
+   "shots": "11",
+   "key_passes": "6",
+   "yellow_cards": "0",
+   "red_cards": "0",
+   "position": "M",
+   "team_title": "Manchester United",
+   "npg": "2",
+   "npxG": "1.486125472933054",
+   "xGChain": "3.1570396423339844",
+   "xGBuildup": "1.6610369086265564"
+  },
+  {
+   "id": "8094",
+   "player_name": "Mathis Cherki",
+   "games": "2",
+   "time": "108",
+   "goals": "2",
+   "xG": "0.60223388671875",
+   "assists": "2",
+   "xA": "1.2220587730407715",
+   "shots": "3",
+   "key_passes": "7",
+   "yellow_cards": "1",
+   "red_cards": "0",
+   "position": "M S",
+   "team_title": "Manchester City",
+   "npg": "2",
+   "npxG": "0.60223388671875",
+   "xGChain": "2.163481593132019",
+   "xGBuildup": "1.040427416563034"
+  },
+  {
+   "id": "8260",
+   "player_name": "Erling Haaland",
+   "games": "2",
+   "time": "180",
+   "goals": "2",
+   "xG": "1.4407066106796265",
+   "assists": "0",
+   "xA": "0",
+   "shots": "10",
+   "key_passes": "0",
+   "yellow_cards": "0",
+   "red_cards": "0",
+   "position": "F",
+   "team_title": "Manchester City",
+   "npg": "2",
+   "npxG": "1.4407066106796265",
+   "xGChain": "1.9421088099479675",
+   "xGBuildup": "0.700776606798172"
+  },
+  {
+   "id": "8272",
+   "player_name": "Jo\u00e3o Pedro",
+   "games": "2",
+   "time": "180",
+   "goals": "2",
+   "xG": "2.055896580219269",
+   "assists": "2",
+   "xA": "0.48180003464221954",
+   "shots": "9",
+   "key_passes": "4",
+   "yellow_cards": "0",
+   "red_cards": "0",
+   "position": "F",
+   "team_title": "Chelsea",
+   "npg": "2",
+   "npxG": "2.055896580219269",
+   "xGChain": "3.2166614532470703",
+   "xGBuildup": "0.8110381439328194"
+  },
+  {
+   "id": "8497",
+   "player_name": "Cole Palmer",
+   "games": "2",
+   "time": "175",
+   "goals": "2",
+   "xG": "1.4829024076461792",
+   "assists": "1",
+   "xA": "0.6803523451089859",
+   "shots": "9",
+   "key_passes": "5",
+   "yellow_cards": "0",
+   "red_cards": "0",
+   "position": "M",
+   "team_title": "Chelsea",
+   "npg": "2",
+   "npxG": "1.4829024076461792",
+   "xGChain": "3.4261893033981323",
+   "xGBuildup": "1.3654860854148865"
+  },
+  {
+   "id": "9524",
+   "player_name": "Anthony Elanga",
+   "games": "2",
+   "time": "160",
+   "goals": "2",
+   "xG": "0.42241890728473663",
+   "assists": "0",
+   "xA": "0.1150919497013092",
+   "shots": "4",
+   "key_passes": "1",
+   "yellow_cards": "0",
+   "red_cards": "0",
+   "position": "M",
+   "team_title": "Newcastle United",
+   "npg": "2",
+   "npxG": "0.42241890728473663",
+   "xGChain": "1.0675505548715591",
+   "xGBuildup": "0.6694696191698313"
+  },
+  {
+   "id": "11269",
+   "player_name": "Jack Hinshelwood",
+   "games": "1",
+   "time": "69",
+   "goals": "2",
+   "xG": "1.401410698890686",
+   "assists": "0",
+   "xA": "0.10088619589805603",
+   "shots": "3",
+   "key_passes": "1",
+   "yellow_cards": "0",
+   "red_cards": "0",
+   "position": "M",
+   "team_title": "Brighton",
+   "npg": "2",
+   "npxG": "1.401410698890686",
+   "xGChain": "1.6856542825698853",
+   "xGBuildup": "0.183357372879982"
+  },
+  {
+   "id": "239",
+   "player_name": "Pascal Gro\u00df",
+   "games": "2",
+   "time": "180",
+   "goals": "1",
+   "xG": "0.045336391776800156",
+   "assists": "0",
+   "xA": "0.9721265435218811",
+   "shots": "1",
+   "key_passes": "6",
+   "yellow_cards": "1",
+   "red_cards": "0",
+   "position": "M",
+   "team_title": "Brighton",
+   "npg": "1",
+   "npxG": "0.045336391776800156",
+   "xGChain": "1.4978562593460083",
+   "xGBuildup": "0.7643085420131683"
+  },
+  {
+   "id": "1665",
+   "player_name": "James Tarkowski",
+   "games": "2",
+   "time": "180",
+   "goals": "1",
+   "xG": "0.11545642465353012",
+   "assists": "0",
+   "xA": "0.014026685617864132",
+   "shots": "2",
+   "key_passes": "1",
+   "yellow_cards": "0",
+   "red_cards": "0",
+   "position": "D",
+   "team_title": "Everton",
+   "npg": "1",
+   "npxG": "0.11545642465353012",
+   "xGChain": "0.02669128030538559",
+   "xGBuildup": "0.02669128030538559"
+  },
+  {
+   "id": "1790",
+   "player_name": "Chuba Akpom",
+   "games": "2",
+   "time": "64",
+   "goals": "1",
+   "xG": "0.4293347895145416",
+   "assists": "0",
+   "xA": "0",
+   "shots": "1",
+   "key_passes": "0",
+   "yellow_cards": "0",
+   "red_cards": "0",
+   "position": "S",
+   "team_title": "Ipswich",
+   "npg": "1",
+   "npxG": "0.4293347895145416",
+   "xGChain": "0.4737274218350649",
+   "xGBuildup": "0.04439263418316841"
+  }
+ ],
+ "dates": [
+  {
+   "id": "31180",
+   "isResult": true,
+   "h": {
+    "id": "83",
+    "title": "Arsenal",
+    "short_title": "ARS"
+   },
+   "a": {
+    "id": "294",
+    "title": "Coventry",
+    "short_title": "COV"
+   },
+   "goals": {
+    "h": "3",
+    "a": "0"
+   },
+   "xG": {
+    "h": "1.85424",
+    "a": "0.558336"
+   },
+   "datetime": "2026-08-21 19:00:00",
+   "forecast": {
+    "w": "0.7194",
+    "d": "0.2156",
+    "l": "0.065"
+   }
+  },
+  {
+   "id": "31181",
+   "isResult": true,
+   "h": {
+    "id": "91",
+    "title": "Hull",
+    "short_title": "HUL"
+   },
+   "a": {
+    "id": "89",
+    "title": "Manchester United",
+    "short_title": "MUN"
+   },
+   "goals": {
+    "h": "2",
+    "a": "0"
+   },
+   "xG": {
+    "h": "1.49627",
+    "a": "1.77874"
+   },
+   "datetime": "2026-08-22 11:30:00",
+   "forecast": {
+    "w": "0.2918",
+    "d": "0.2884",
+    "l": "0.4198"
+   }
+  },
+  {
+   "id": "31182",
+   "isResult": true,
+   "h": {
+    "id": "72",
+    "title": "Everton",
+    "short_title": "EVE"
+   },
+   "a": {
+    "id": "78",
+    "title": "Crystal Palace",
+    "short_title": "CRY"
+   },
+   "goals": {
+    "h": "2",
+    "a": "0"
+   },
+   "xG": {
+    "h": "1.45085",
+    "a": "2.23095"
+   },
+   "datetime": "2026-08-22 14:00:00",
+   "forecast": {
+    "w": "0.1846",
+    "d": "0.2293",
+    "l": "0.5861"
+   }
+  },
+  {
+   "id": "31183",
+   "isResult": true,
+   "h": {
+    "id": "285",
+    "title": "Ipswich",
+    "short_title": "IPS"
+   },
+   "a": {
+    "id": "77",
+    "title": "Sunderland",
+    "short_title": "SUN"
+   },
+   "goals": {
+    "h": "2",
+    "a": "1"
+   },
+   "xG": {
+    "h": "1.58452",
+    "a": "1.17743"
+   },
+   "datetime": "2026-08-22 14:00:00",
+   "forecast": {
+    "w": "0.4792",
+    "d": "0.2862",
+    "l": "0.2346"
+   }
+  },
+  {
+   "id": "31184",
+   "isResult": true,
+   "h": {
+    "id": "249",
+    "title": "Nottingham Forest",
+    "short_title": "NOT"
+   },
+   "a": {
+    "id": "245",
+    "title": "Leeds",
+    "short_title": "LED"
+   },
+   "goals": {
+    "h": "0",
+    "a": "1"
+   },
+   "xG": {
+    "h": "0.656681",
+    "a": "0.466247"
+   },
+   "datetime": "2026-08-22 14:00:00",
+   "forecast": {
+    "w": "0.3617",
+    "d": "0.4181",
+    "l": "0.2202"
+   }
+  }
+ ],
+ "teams": {}
+}

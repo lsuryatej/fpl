@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.fpl.refresh</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/suryatejlalam/fpl/scripts/refresh.sh</string>
+    <string>quick</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <array>
+    <!-- Times are local (IST). FPL price changes land around 01:30 UK,
+         which is 06:00 IST during British Summer Time. -->
+    <dict><key>Hour</key><integer>5</integer><key>Minute</key><integer>45</integer></dict>
+    <dict><key>Hour</key><integer>6</integer><key>Minute</key><integer>15</integer></dict>
+    <dict><key>Hour</key><integer>20</integer><key>Minute</key><integer>0</integer></dict>
+  </array>
+  <key>StandardOutPath</key>
+  <string>/Users/suryatejlalam/fpl/logs/launchd.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/suryatejlalam/fpl/logs/launchd.err.log</string>
+  <key>WorkingDirectory</key>
+  <string>/Users/suryatejlalam/fpl</string>
+</dict>
+</plist>

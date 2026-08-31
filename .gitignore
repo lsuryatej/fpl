@@ -1,0 +1,26 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Cached API responses
+data/cache/
+
+# Derived data: regenerable from source, and large
+data/history/
+data/understat/
+data/fbref/
+data/projections/
+
+# Run logs and generated briefs
+logs/
+briefs/*.html
+
+# macOS
+.DS_Store
