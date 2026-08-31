@@ -198,6 +198,25 @@ def availability_multiplier(status: str | None, chance_next: float | None) -> fl
     return 1.0  # status == "a", or an unrecognised future code: assume available.
 
 
+
+def _coerce_team_ids(series: "pd.Series") -> "pd.Series":
+    """Normalise the team column without destroying its identity.
+
+    The live API identifies teams by integer id; the historical archive uses
+    names ("Man Utd"). ``astype(int)`` crashed on the archive with
+    ``invalid literal for int() with base 10: 'Arsenal'``.
+
+    This column is a JOIN KEY against the fixture table, so the one thing we
+    must not do is invent new codes for it: mapping names to arbitrary
+    integers made every backtest join match zero rows and return an empty
+    frame. Numeric input becomes int; anything else passes through untouched.
+    """
+    numeric = pd.to_numeric(series, errors="coerce")
+    if numeric.notna().all():
+        return numeric.astype(int)
+    return series
+
+
 def estimate_minutes(
     elements: pd.DataFrame,
     gw_history: pd.DataFrame,
@@ -309,8 +328,8 @@ def estimate_minutes(
         {
             "player_id": out["player_id"].astype(int),
             "position": out["position"],
-            "team": out["team"].astype(int),
-            "price": out["price"].astype(int),
+            "team": _coerce_team_ids(out["team"]),
+            "price": pd.to_numeric(out["price"], errors="coerce").fillna(0).astype(int),
             "status": out["status"],
             "p_play": p_play,
             "p_start": p_start,

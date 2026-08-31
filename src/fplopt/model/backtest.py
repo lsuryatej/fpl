@@ -340,11 +340,28 @@ def main(argv: Sequence[str] | None = None) -> int:
     print("=" * 78)
     print("PRIMARY BACKTEST: 2026-27 GW1 (zero current-season signal) and GW2")
     print("=" * 78)
-    primary = run_backtest(history_df, [("2026-27", 1), ("2026-27", 2)], n_sims=args.n_sims)
-    for row in primary["per_target"]:
-        print(row)
-    print("overall:", primary["overall"])
-    print("\ncalibration:\n", primary["calibration"].to_string())
+    # The vaastav archive lags the live API: 2026-27 currently holds GW1 only,
+    # and GW1 has no within-season signal to predict from. Targeting it produced
+    # an empty result that printed as success. Use whatever the archive actually
+    # has, and say so when there is nothing to run.
+    available = sorted(
+        int(g) for g in history_df.loc[history_df["season"] == "2026-27", "gw"].unique()
+    )
+    primary_targets = [("2026-27", g) for g in available if g >= 2]
+    if not primary_targets:
+        print(
+            f"skipped: the 2026-27 archive holds gameweeks {available}, and a "
+            f"backtest needs at least one gameweek with prior-season-week data "
+            f"(GW2+). The secondary backtest below carries the evidence."
+        )
+        primary = None
+    else:
+        primary = run_backtest(history_df, primary_targets, n_sims=args.n_sims)
+    if primary is not None:
+        for row in primary["per_target"]:
+            print(row)
+        print("overall:", primary["overall"])
+        print("\ncalibration:\n", primary["calibration"].to_string())
 
     print("\n" + "=" * 78)
     print("SECONDARY BACKTEST: 2025-26, spread gameweeks (defcon-rescored, bonus-vintage caveat)")
