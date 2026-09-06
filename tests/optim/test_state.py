@@ -168,15 +168,30 @@ class TestSimulateFreeTransfers:
         rows = [{"event": e, "event_transfers": 0} for e in range(1, 10)]
         assert simulate_free_transfers(rows) == 5
 
-    def test_wildcard_week_does_not_touch_the_bank(self):
+    def test_wildcard_week_preserves_the_bank_but_earns_nothing(self):
+        """A chip week holds the bank steady; it does not also pay a transfer.
+
+        Checked against the live game: entry 3539707 made no transfers in GW1
+        or GW2 (rolling to 2 entering GW3), played a wildcard in GW3, and the
+        game then showed 2 free transfers for GW4 -- not 3. An earlier version
+        of this test asserted 3, encoding the same mistake as the code it was
+        meant to guard.
+        """
         rows = [
             {"event": 1, "event_transfers": 0},
             {"event": 2, "event_transfers": 0},  # rolls to 2 entering gw3
-            {"event": 3, "event_transfers": 15},  # wildcard: 15 transfers, but shouldn't cost the bank
+            {"event": 3, "event_transfers": 15},  # wildcard: does not draw the bank down
         ]
         chips = [{"name": "wildcard", "event": 3}]
-        # Entering gw4: as if gw3 had 0 transfers -> 2 - 0 + 1 = 3.
-        assert simulate_free_transfers(rows, chips) == 3
+        assert simulate_free_transfers(rows, chips) == 2
+
+    def test_free_hit_week_behaves_the_same_as_wildcard(self):
+        rows = [
+            {"event": 1, "event_transfers": 0},
+            {"event": 2, "event_transfers": 0},
+            {"event": 3, "event_transfers": 11},
+        ]
+        assert simulate_free_transfers(rows, [{"name": "freehit", "event": 3}]) == 2
 
     def test_empty_history_defaults_to_one(self):
         assert simulate_free_transfers([]) == 1

@@ -1,200 +1,55 @@
 {
-  "headline": "wildcard now: 452.7 expected points over GW3-10 (chosen on league rank utility)",
+  "headline": "Use 2 of your 3 free transfers to clear the dead bench. Hold the wildcard.",
   "summary": [
-    "Best course of action is 'wildcard now', worth 24.1 more expected points over the 8-gameweek horizon than the alternative.",
-    "Multi-week planning beats one-week-greedy by 37.6 expected points."
+    "Wieffer (knee injury, 0% chance, no return date) and Dovin (loaned to Leyton Orient for the season) are both permanently dead. That is GBP 9.0m of a 15-man squad doing nothing, and you currently have no goalkeeper cover.",
+    "OUT Wieffer, IN Egan (HUL, GBP 4.0m): highest 8-gameweek projection of any defender at or below GBP 5.1m (31.7), driven by defensive-contribution points, and he frees GBP 1.0m.",
+    "OUT Dovin, IN Leno (FUL, GBP 4.5m): fixes the dead keeper slot, and Leno actually outprojects Tzolakis over the horizon (28.3 vs 26.8), so it is an upgrade rather than just cover.",
+    "Leaves GBP 0.9m banked and 1 free transfer in reserve for news before the 12 Sep deadline.",
+    "Do NOT play the second wildcard: the solver rates it at only +4.7 expected points over the no-chip plan, which is a poor use of your last first-half chip.",
+    "Do NOT sell Semenyo. The rank-utility objective wanted to because he is 28.9% owned in this league, but his 36.6 expected points over GW4-11 is the best in your squad after Haaland.",
+    "Captaincy is close for GW4 (Gakpo 4.86 vs Haaland 4.53) and does not need deciding until the deadline."
   ],
   "options": {
-    "no chip": {
-      "true_ep": 428.63,
-      "objective": 486.24
+    "use 2 free transfers": {
+      "true_ep": 432.33,
+      "objective": 494.92
     },
-    "wildcard now": {
-      "true_ep": 452.72,
-      "objective": 515.32
+    "second wildcard": {
+      "true_ep": 437.03,
+      "objective": 501.87
     }
   },
-  "greedy_baseline": 415.16,
-  "true_ep": 452.72,
+  "objective": "expected points, with the solver's wildcard and Semenyo calls overridden",
   "plan": [
-    {
-      "gw": 3,
-      "chip": "wildcard",
-      "in": [
-        "Verbruggen",
-        "Wieffer",
-        "Richards",
-        "Leno",
-        "McBurnie",
-        "Virgil",
-        "Gakpo",
-        "Szoboszlai",
-        "N.Williams",
-        "Milenkovi\u0107",
-        "Gibbs-White",
-        "Anderson",
-        "Gonzalo"
-      ],
-      "out": [
-        "Buend\u00eda",
-        "Watkins",
-        "Dovin",
-        "Henderson",
-        "Mu\u00f1oz",
-        "Diop",
-        "Greaves",
-        "Calvert-Lewin",
-        "C.Jones",
-        "Matheus N.",
-        "Shaw",
-        "B.Fernandes",
-        "Tonali"
-      ],
-      "captain": "Semenyo",
-      "vice": "Szoboszlai",
-      "hits": 0,
-      "hit_cost": 0,
-      "ft_before": 2,
-      "ft_used": 0,
-      "bank_after": 0.0,
-      "points": 71.12
-    },
     {
       "gw": 4,
       "chip": null,
-      "in": [],
-      "out": [],
-      "captain": "Szoboszlai",
-      "vice": "Haaland",
+      "out": [
+        "Wieffer",
+        "Dovin"
+      ],
+      "in": [
+        "Egan",
+        "Leno"
+      ],
+      "captain": "decide at deadline",
+      "vice": "",
       "hits": 0,
       "hit_cost": 0,
       "ft_before": 3,
-      "ft_used": 0,
-      "bank_after": 0.0,
-      "points": 60.27
-    },
-    {
-      "gw": 5,
-      "chip": null,
-      "in": [
-        "Tarkowski",
-        "Dewsbury-Hall",
-        "Stach",
-        "Thiaw"
-      ],
-      "out": [
-        "Richards",
-        "Virgil",
-        "Gakpo",
-        "Szoboszlai"
-      ],
-      "captain": "Gibbs-White",
-      "vice": "Tarkowski",
-      "hits": 0,
-      "hit_cost": 0,
-      "ft_before": 4,
-      "ft_used": 4,
-      "bank_after": 2.0,
-      "points": 69.04
-    },
-    {
-      "gw": 6,
-      "chip": null,
-      "in": [
-        "Scott"
-      ],
-      "out": [
-        "Dewsbury-Hall"
-      ],
-      "captain": "Thiaw",
-      "vice": "Gonzalo",
-      "hits": 0,
-      "hit_cost": 0,
-      "ft_before": 1,
-      "ft_used": 1,
-      "bank_after": 2.5,
-      "points": 59.93
-    },
-    {
-      "gw": 7,
-      "chip": null,
-      "in": [
-        "Van Hecke"
-      ],
-      "out": [
-        "Wieffer"
-      ],
-      "captain": "Haaland",
-      "vice": "Thiaw",
-      "hits": 0,
-      "hit_cost": 0,
-      "ft_before": 1,
-      "ft_used": 1,
-      "bank_after": 2.5,
-      "points": 69.04
-    },
-    {
-      "gw": 8,
-      "chip": null,
-      "in": [],
-      "out": [],
-      "captain": "Gibbs-White",
-      "vice": "Leno",
-      "hits": 0,
-      "hit_cost": 0,
-      "ft_before": 1,
-      "ft_used": 0,
-      "bank_after": 2.5,
-      "points": 62.06
-    },
-    {
-      "gw": 9,
-      "chip": null,
-      "in": [
-        "Egan"
-      ],
-      "out": [
-        "Milenkovi\u0107"
-      ],
-      "captain": "McBurnie",
-      "vice": "Scott",
-      "hits": 0,
-      "hit_cost": 0,
-      "ft_before": 2,
-      "ft_used": 1,
-      "bank_after": 4.0,
-      "points": 61.12
-    },
-    {
-      "gw": 10,
-      "chip": null,
-      "in": [
-        "Mykolenko",
-        "Ndiaye"
-      ],
-      "out": [
-        "Egan",
-        "Gibbs-White"
-      ],
-      "captain": "Tarkowski",
-      "vice": "Ndiaye",
-      "hits": 0,
-      "hit_cost": 0,
-      "ft_before": 2,
       "ft_used": 2,
-      "bank_after": 5.4,
-      "points": 62.75
+      "bank_after": 0.9,
+      "points": 0
     }
   ],
   "state": {
-    "bank": 0.0,
-    "free_transfers": 2,
+    "bank": 0.4,
+    "free_transfers": 3,
     "chips": {
-      "wildcard": 2,
+      "wildcard": 1,
       "free_hit": 2,
       "bench_boost": 2,
       "triple_captain": 2
     }
-  },
-  "objective": "league rank utility"
+  }
 }

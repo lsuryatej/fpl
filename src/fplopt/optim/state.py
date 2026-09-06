@@ -226,20 +226,22 @@ def simulate_free_transfers(
         further.
       * The next gameweek's bank is ``min(max_bank, ft_before - free_used + 1)``:
         one more transfer becomes free next week, capped at ``max_bank``.
-      * A gameweek in which Wildcard or Free Hit was active is treated as
-        zero transfers for banking purposes -- both chips grant unlimited
-        transfers for that week without touching the saved bank, per the
-        current rules.
+      * A gameweek in which Wildcard or Free Hit was active PRESERVES the
+        bank unchanged: the chip grants unlimited transfers without drawing
+        the bank down, but the week also earns no new free transfer. An
+        earlier version treated the chip week as "zero transfers made" and
+        still applied the ``+1`` accrual, which reported 3 free transfers
+        entering gameweek 4 when the game itself showed 2.
 
     This is a best-effort reconstruction from public history data, not a
     field the API returns -- treat the result as advisory. Callers who know
     the true figure (e.g. from the FPL web UI) should override
     ``ManagerState.free_transfers`` directly.
 
-    Verified against the live API for entry 3539707 (2 gameweeks played, 0
-    transfers made in either): correctly returns 2 free transfers entering
-    gameweek 3, not 3 -- an earlier version of this function double-counted
-    the manager's first gameweek as also earning a roll.
+    Verified against the live API for entry 3539707: returns 2 entering
+    gameweek 3 (2 gameweeks played, no transfers made), and 2 entering
+    gameweek 4 after a wildcard was played in gameweek 3 -- both confirmed
+    against what the game itself displayed.
     """
     if not current_rows:
         return 1
@@ -252,7 +254,10 @@ def simulate_free_transfers(
     ft = 1
     for row in rows_sorted[1:]:  # skip the manager's first played gameweek
         event = int(row["event"])
-        made = 0 if event in chip_weeks else int(row.get("event_transfers", 0) or 0)
+        if event in chip_weeks:
+            # Bank held, no accrual.
+            continue
+        made = int(row.get("event_transfers", 0) or 0)
         free_used = min(made, ft)
         ft = min(max_bank, ft - free_used + 1)
     return ft
